@@ -1,9 +1,4 @@
-// npm run svg
-// node createComponent.js [fileName]
-
 /* eslint-disable no-console */
-
-// ---------------------- Generate content -----------------------
 
 function toKebabCase(str) {
   return str.replace(/([a-z])([A-Z])/g, '$1-$2').replace(/\s+/g, '-').toLowerCase()
@@ -12,7 +7,8 @@ function toKebabCase(str) {
 let fileName = process.argv[2] // es. node createComponent.js IconConfetti
 const fileNameKebab = toKebabCase(fileName)
 
-// --------------------- Read file ----------------------
+// --------------------- Read file --------------------------------
+
 const fs = require('fs')
 let svgoData
 
@@ -21,6 +17,8 @@ try {
 } catch (err) {
   console.error(err)
 }
+
+// ---------------------- Generate vue component content -------------
 
 const fileContent = `
 <template>
@@ -42,12 +40,14 @@ const fileContent = `
 </style>
 `
 
-// --------------------- Write file ----------------------
+// --------------------- Write vue icon file ----------------------
 
 const filepath = `src/components/icons/${fileName}.vue`
 
-fs.writeFile(filepath, fileContent, (err) => {
-    if (err) throw err
+if (svgoData) {
+  fs.writeFile(filepath, fileContent, (err) => {
+      if (err) throw err
 
-    console.log("The file was succesfully saved!")
-})
+      console.log("The file was succesfully saved!")
+  })
+}
