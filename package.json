@@ -6,7 +6,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "svg": "svgo -f src/icons-svg -o src/components/icons",
+    "svg": "svgo -f src/assets/icons/svg -o src/assets/icons/svgo",
     "vgc": "vgc -s"
   },
   "dependencies": {

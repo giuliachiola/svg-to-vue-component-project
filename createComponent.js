@@ -1,25 +1,35 @@
-// node createComponent.js [IconName]
+// npm run svg
+// node createComponent.js [fileName]
+
+/* eslint-disable no-console */
 
 // ---------------------- Generate content -----------------------
-
-let iconName = process.argv[2] // es. node createComponent.js Header
 
 function toKebabCase(str) {
   return str.replace(/([a-z])([A-Z])/g, '$1-$2').replace(/\s+/g, '-').toLowerCase()
 }
 
-const iconNameKebab = toKebabCase(iconName)
+let fileName = process.argv[2] // es. node createComponent.js IconConfetti
+const fileNameKebab = toKebabCase(fileName)
 
-const template = `
+// --------------------- Read file ----------------------
+const fs = require('fs')
+let svgoData
+
+try {
+  svgoData = fs.readFileSync(`src/assets/icons/svgo/${fileNameKebab}.svg`, 'utf8')
+} catch (err) {
+  console.error(err)
+}
+
+const fileContent = `
 <template>
-
+  ${svgoData}
 </template>
 
 <script lang="js">
-
   export default  {
-
-    name: '${iconName}',
+    name: '${fileName}',
 
     props: {
 
@@ -28,25 +38,16 @@ const template = `
 </script>
 
 <style lang="scss">
-  // .${iconNameKebab} {}
+  // .${fileNameKebab} {}
 </style>
 `
 
-console.log(template)
-
 // --------------------- Write file ----------------------
 
-var fs = require('fs')
-
-// Change the content of the file as you want
-// or either set fileContent to null to create an empty file
-var fileContent = template
-
-// The absolute path of the new file with its name
-var filepath = `src/components/icons/${iconName}.vue`
+const filepath = `src/components/icons/${fileName}.vue`
 
 fs.writeFile(filepath, fileContent, (err) => {
     if (err) throw err
 
     console.log("The file was succesfully saved!")
-});
+})
