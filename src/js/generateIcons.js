@@ -18,6 +18,7 @@ fs.readdir(iconsFolder, (err, files) => {
 
     try {
       svgoData = fs.readFileSync(`src/assets/icons/svgo/${iconFile}`, 'utf8')
+      console.log(svgoData)
     } catch (err) {
       console.error(err)
     }
@@ -53,7 +54,7 @@ const fileContent = `<template>
         fs.writeFile(filepath, fileContent, (err) => {
             if (err) throw err
 
-            console.log("The file was succesfully saved!")
+            console.log(`The file ${fileName} was succesfully saved!`)
         })
       }
     })
