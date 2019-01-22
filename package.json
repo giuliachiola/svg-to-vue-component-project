@@ -7,7 +7,7 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "svg": "svgo -f src/assets/icons/svg -o src/assets/icons/svgo",
-    "icons": "node src/js/createIcons.js"
+    "generate-icons": "node src/js/generateIcons.js"
   },
   "dependencies": {
     "vue": "^2.5.21"
