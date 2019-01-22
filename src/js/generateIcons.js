@@ -26,24 +26,24 @@ fs.readdir(iconsFolder, (err, files) => {
 
     const fileName = toPascalCase(iconFile).slice(0, -4) // remove .svg at the end
 
-    const fileContent = `<template>
-        ${svgoData}
-      </template>
+const fileContent = `<template>
+  ${svgoData}
+</template>
 
-      <script lang="js">
-        export default  {
-          name: '${fileName}',
+<script lang="js">
+  export default  {
+    name: '${fileName}',
 
-          props: {
+    props: {
 
-          },
-      }
-      </script>
+    },
+}
+</script>
 
-      <style lang="scss">
-        // .${iconFile} {}
-      </style>
-      `
+<style lang="scss">
+  // .${iconFile} {}
+</style>
+`
 
       // --------------------- Write vue icon file ----------------------
 
