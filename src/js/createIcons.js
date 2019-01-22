@@ -7,9 +7,18 @@ function toKebabCase(str) {
 let fileName = process.argv[2] // es. node createComponent.js IconConfetti
 const fileNameKebab = toKebabCase(fileName)
 
+const iconsFolder = 'src/assets/icons/svgo';
+const fs = require('fs');
+
+fs.readdir(iconsFolder, (err, files) => {
+  files.forEach(file => {
+    console.log(file)
+  });
+})
+
 // --------------------- Read file --------------------------------
 
-const fs = require('fs')
+// const fs = require('fs')
 let svgoData
 
 try {
