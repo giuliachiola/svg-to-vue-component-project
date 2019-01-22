@@ -18,7 +18,7 @@ fs.readdir(iconsFolder, (err, files) => {
 
     try {
       svgoData = fs.readFileSync(`src/assets/icons/svgo/${iconFile}`, 'utf8')
-      console.log(svgoData)
+      // console.log(svgoData)
     } catch (err) {
       console.error(err)
     }

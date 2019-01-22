@@ -1,5 +1,8 @@
 <template>
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M397.241 176.552H276.303L388.414 0H247.172L114.759 264.828h104.166L114.759 512l282.482-335.448z" fill="#ecba16"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <path fill="#ecba16" d="M397.241 176.552H276.303L388.414 0H247.172L114.759 264.828h104.166L114.759 512l282.482-335.448z"/>
+</svg>
+
 </template>
 
 <script lang="js">
